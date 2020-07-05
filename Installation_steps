@@ -1,0 +1,45 @@
+Steps on Ubantu to install hid library 
+------------------
+I followed the instructions at  https://pypi.org/project/hid/
+
+1) first chec if pip is instlled, pip is  not default in Ubantu
+$ sudo apt install python3-pip python-dev
+
+check the installation by running the following command
+$ pip3 --version 
+
+2)Since pyhidapi is dependant upon the hidapi library, which must be installed separately  
+$ apt install libhidapi-hidraw0
+
+3) Now we I intalled hid library using pip (pip3 actually) 
+pip3 install hid
+
+
+************The above method did not work************
+so change of plans, since i suspec the problem is wiht the hid library,
+I am going to no use that and use the pyUSB library, Althoug it was not
+abvious at first it seems pyUSB uses libUSB as a baase, Earlier 
+I though that that the two were seprate 
+* the pyUSB is the python language binding for libUSB
+
+
+I base my research on the following sources 
+https://os.mbed.com/cookbook/USBHID-bindings-
+https://learn.pimoroni.com/tutorial/robots/controlling-your-robot-wireless-keyboard
+https://libusb.info/
+
+installing lib usb (it was already installed in my system)
+----------------------------------------------------------
+1)$ sudo apt-get update -y
+2)$ sudo apt-get install -y libusb-1.0-0
+
+to check the installation 
+$ dpkg -l libusb-1.0*
+
+installing pyUSB
+-----------------
+1) $pip3 install pyusb
+
+
+
+
