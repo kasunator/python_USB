@@ -1,5 +1,4 @@
-import os
-import sys
+
 
 import usb.core
 import usb.util
@@ -8,8 +7,6 @@ vid = 0x1234  # Change it for your device
 pid = 0x000b  # Change it for your device
 
 
-from time import sleep
-import random
 
 
 # handler called when a report is received

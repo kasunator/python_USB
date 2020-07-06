@@ -40,6 +40,19 @@ installing pyUSB
 -----------------
 1) $pip3 install pyusb
 
+the linux test is in pyUSB_test.py, for some reason this did not fully work in the virtual machine.
+but it worked sucessfully in raspberry pi , we had run it with sudo privillages 
+$sudo python3 pyUSB_test.py 
 
+*********************** seting up for windows **************************
+I used anaconda so I installed lib usb first using anaconda
+https://anaconda.org/m-labs/libusb
+conda install -c m-labs libusb
 
+I used anaconda to install the pyUSB
+https://anaconda.org/conda-forge/pyusb
+conda install -c conda-forge pyusb
+
+the windows test is in pyUSB_Windows_test.py
+but the hid_device.is_kernel_driver_active(2) call did not work in windows 
 
