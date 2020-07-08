@@ -65,6 +65,49 @@ def getEndpoint_Out(hid_device):
         print("the endpoint OUT: {0}",endpoint_Out)
     return found,endpoint_Out
 
+def send_test_message(endpoint):
+       # def write(self, data, timeout = None):
+        r"""Write data to the endpoint.
+
+        The parameter data contains the data to be sent to the endpoint and
+        timeout is the time limit of the operation. The transfer type and
+        endpoint address are automatically inferred.
+
+        The method returns the number of bytes written.
+
+        For details, see the Device.write() method.
+        """
+        """
+        USB_MSG_GET_DEVICE_INFO = 0x03,           // 3
+        USB_MSG_GET_DEVICE_INFO_REPLY,     // 4   """
+        
+        out_msg = [3,0]
+        outData = bytearray(out_msg)
+        write_length = endpoint.write(outData)
+        print("endpoint write length: {0}", write_length)
+        
+def send_test_message2(hid_device, endpoint):
+       # def write(self, data, timeout = None):
+        r"""Write data to the endpoint.
+
+        The parameter data contains the data to be sent to the endpoint and
+        timeout is the time limit of the operation. The transfer type and
+        endpoint address are automatically inferred.
+
+        The method returns the number of bytes written.
+
+        For details, see the Device.write() method.
+        """
+        """
+        USB_MSG_GET_DEVICE_INFO = 0x03,           // 3
+        USB_MSG_GET_DEVICE_INFO_REPLY,     // 4   """
+        
+        out_msg = [3,0]
+        outData = bytearray(out_msg)
+        print("outData: {0}", "30")  
+        write_length = hid_device.write(endpoint ,data= outData)
+        print("endpoint write length: {0}", write_length)        
+
 if __name__ == '__main__':
     # The vendor ID and product ID used in the Mbed program
     mbed_vendor_id = 0x1234
@@ -75,5 +118,10 @@ if __name__ == '__main__':
     if found == True :
        found,mEndpoint_In = getEndpoint_In(mHIDDevice)
        found,mEndpoint_Out = getEndpoint_Out(mHIDDevice)
+       
+       #mHIDDevice.write()
+       #mEndpoint_Out.Wr
+       #send_test_message(mEndpoint_Out)
+       send_test_message2(mHIDDevice,mEndpoint_Out)
        #if found == True :
            # now go to an infinite while loop 
